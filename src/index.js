@@ -46,7 +46,7 @@ formElement.addEventListener('submit', async e => {
   e.preventDefault();
 
   galleryElement.innerHTML = '';
-  page = 0;
+  page = 1;
   totalPageCount = 0;
 
   await getImages(inputElement.value.trim(''));
