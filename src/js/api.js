@@ -10,8 +10,17 @@ const params = {
   safesearch: true,
 };
 
-export function getImages(searchValue) {
+export const IMAGES_ON_PAGE_COUNT = 40;
+
+export function fetchImages(searchValue, page = 1) {
   return axios
-    .get(URL, { params: { ...params, q: searchValue } })
+    .get(URL, {
+      params: {
+        ...params,
+        q: searchValue,
+        per_page: IMAGES_ON_PAGE_COUNT,
+        page,
+      },
+    })
     .then(res => res.data);
 }
